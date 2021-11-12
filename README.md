@@ -28,7 +28,7 @@ Time taken: 4.914074182510376
 Time taken: 1.4773468971252441
 ```
 
-You can check the json database at `data/database`, but it may crash.
+You can check the json database at `data/database`.
 
 4. Stop the redis server.
 

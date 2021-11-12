@@ -5,7 +5,7 @@ import redis
 
 file_path = "data/database"
 r = redis.Redis()
-data = [random.random() for i in range(10000000)]
+data = {i: random.random() for i in range(10000000)}
 
 
 def create_database():
@@ -18,13 +18,15 @@ def create_redis():
     r.set("data", value)
 
 
-def get_json():
+def get_disk():
     with open(file_path, 'r') as f:
-        data = json.load(f)
+        response = "".join(f.readlines())
+        return response
 
 
 def get_redis():
-    value = r.get("data")
+    response = r.get("data")
+    return response
 
 
 def timing(func):
@@ -38,5 +40,5 @@ def timing(func):
 if __name__ == '__main__':
     timing(create_database)
     timing(create_redis)
-    timing(get_json)
+    timing(get_disk)
     timing(get_redis)

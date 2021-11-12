@@ -33,3 +33,7 @@ You can check the json database at `data/database`, but it may crash.
 4. Stop the redis server.
 
 `redis-cli shutdown`
+
+5. Clean the database.
+
+`redis-cli flushadb`
